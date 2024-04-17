@@ -12,14 +12,15 @@ return {
   opts = {
     filesystem = {
       filtered_items = {
-        visible = true,
-        show_hidden_count = true,
+        visible = false,
+        show_hidden_count = false,
         hide_dotfiles = false,
-        hide_gitignored = false,
+        hide_gitignored = true,
         hide_by_name = {
           '.git',
+          '__pycache__',
         },
-        never_show = {},
+        never_show = { '**/__pycache__' },
       },
     },
   },

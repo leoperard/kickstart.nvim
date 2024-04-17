@@ -1,6 +1,6 @@
 return {
   'jose-elias-alvarez/null-ls.nvim',
-  ft = { 'go', 'lua', 'markdown', 'python', 'rust', 'terraform', 'hcl' },
+  ft = { 'go', 'lua', 'markdown', 'python', 'rust', 'terraform', 'terraform-vars', 'hcl', 'json' },
   opts = function()
     local null_ls = require 'null-ls'
 
