@@ -353,7 +353,7 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = { find_files = { hidden = true } },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -540,15 +540,29 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
-        -- gopls = {},
-        pyright = {},
+        -- python
         debugpy = {},
         mypy = {},
         black = {},
         isort = {},
         ruff = {},
+        pyright = {},
+        -- rust
         rust_analyzer = {},
+        -- c/c++
+        clangd = {},
+        -- terraform
+        terraformls = {},
+        tflint = {},
+        -- yaml
+        yamlls = {},
+        yamlfmt = {},
+        -- markdown
+        markdown_oxide = {},
+        -- gradle
+        gradle_ls = {},
+        -- gitlab-ci
+        gitlab_ci_ls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -632,12 +646,19 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        markdown = { 'markdownlint' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
+        yaml = { 'yamlfmt' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
+      },
+      formatters = {
+        yamlfmt = {
+          prepend_args = { '-formatter retain_line_breaks=true,retain_line_breaks_single=true' },
+        },
       },
     },
   },
