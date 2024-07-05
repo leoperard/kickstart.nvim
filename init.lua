@@ -558,6 +558,7 @@ require('lazy').setup({
         yamlls = {},
         yamlfmt = {},
         -- markdown
+        markdownlint = {},
         markdown_oxide = {},
         -- gradle
         gradle_ls = {},
