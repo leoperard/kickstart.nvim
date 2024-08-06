@@ -419,6 +419,8 @@ require('lazy').setup({
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
       { 'folke/neodev.nvim', opts = {} },
+      -- dependencies for helm so it won't collide with helm
+      { 'towolf/vim-helm', ft = 'helm' },
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -546,7 +548,7 @@ require('lazy').setup({
         black = {},
         isort = {},
         ruff = {},
-        pyright = {},
+        -- pyright = {},
         -- rust
         rust_analyzer = {},
         -- c/c++
@@ -554,6 +556,8 @@ require('lazy').setup({
         -- terraform
         terraformls = {},
         tflint = {},
+        -- helm
+        helm_ls = {},
         -- yaml
         yamlls = {},
         yamlfmt = {},
